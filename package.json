@@ -12,8 +12,8 @@
   },
   "license": "ISC",
   "author": "Dharmesh",
-  "type": "commonjs",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
