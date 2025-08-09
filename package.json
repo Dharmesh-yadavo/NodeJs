@@ -1,0 +1,23 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Dharmesh-yadavo/NodeJs#readme",
+  "bugs": {
+    "url": "https://github.com/Dharmesh-yadavo/NodeJs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dharmesh-yadavo/NodeJs.git"
+  },
+  "license": "ISC",
+  "author": "Dharmesh",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
