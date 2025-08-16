@@ -7,10 +7,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send("<h1>Hello World !</h1>");
+  res.send("<h1>Hello About Page !</h1>");
 });
 
-const PORT = 3000;
+// console.log(process);
+
+// const PORT = 3000;
+const PORT = process.env.PORT;
+
 app.listen(PORT, () => {
   console.log(`Server is running at: ${PORT}`);
 });
