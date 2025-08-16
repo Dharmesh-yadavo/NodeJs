@@ -1,0 +1,73 @@
+body {
+  background: #0d1117; /* dark GitHub-like background */
+  color: #c9d1d9;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.bio {
+  background: #161b22;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  max-width: 600px;
+  text-align: left;
+}
+
+.bio h1,
+.bio h2,
+.bio h3,
+.bio h4,
+.bio h5 {
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.bio h1 {
+  font-size: 28px;
+  color: #58a6ff;
+}
+
+.bio h2 {
+  font-size: 22px;
+  color: #f0883e;
+}
+
+.bio h3 {
+  font-size: 20px;
+  color: #3fb950;
+}
+
+.bio h4 {
+  font-size: 20px;
+  color: #db61a2;
+}
+
+.bio h5 {
+  font-size: 18px;
+  color: #8b949e;
+}
+
+.bio a {
+  color: #58a6ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.bio a:hover {
+  color: #1f6feb;
+  text-decoration: underline;
+}
+
+/* Emoji spacing */
+.bio h1 span,
+.bio h2 span,
+.bio h3 span,
+.bio h4 span,
+.bio h5 span {
+  margin-right: 8px;
+}
