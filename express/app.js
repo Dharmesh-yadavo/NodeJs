@@ -58,6 +58,14 @@ app.get("/profile/:username/article/:slug", (req, res) => {
   res.send(`<h1>Article ${formatedSlug} by ${req.params.username} </h1>`);
 });
 
+//! Query Parameters
+app.get("/product", (req, res) => {
+  console.log(req.query);
+  // res.send(`<h1>${req.query.search}</h1>`);
+  //* can do for multiple queries ... while writing URL add & in between
+  res.send(`<h1>${req.query.search} ---> ${req.query.limit}</h1>`);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running at: ${PORT}`);
 });
