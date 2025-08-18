@@ -79,6 +79,14 @@ app.post("/contact", (req, res) => {
   res.redirect("/");
 });
 
+//! How to Handle a 404 Error Page
+app.use((req, res) => {
+  // return res.status(404).send("page not found");
+  return res
+    .status(404)
+    .sendFile(path.join(import.meta.dirname, "views", "404.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running at: ${PORT}`);
 });
