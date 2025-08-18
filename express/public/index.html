@@ -7,13 +7,44 @@
     <title>Express</title>
   </head>
   <body>
-    <div class="bio">
+    <!-- <div class="bio">
       <h1><span>👋</span> Hi, I’m @Dharmesh-yadavo</h1>
       <h2><span>👀</span> I’m interested in devloping and learning</h2>
       <h3><span>🌱</span> I’m currently devloping frontend</h3>
       <h4><span>💞️</span> I’m looking to collaborate on new ideas</h4>
       <h5><span>📫</span> reach me yadavdharmesh2306@gmail.com</h5>
       <h5><span>😄</span> Pronouns: He/Devloper</h5>
+    </div> -->
+
+    <div>
+      <form action="/contact" method="post">
+        <div>
+          <label for="username">Full Name</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+            autocomplete="off"
+            placeholder="enter full name"
+          />
+        </div>
+        <br />
+        <div class="mb-3">
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message "
+            cols="30"
+            rows="10"
+            placeholder="we are always here to help you."
+          ></textarea>
+        </div>
+        <br />
+        <div class="mt-3">
+          <button type="submit" class="btn contact-btn">Send Message</button>
+        </div>
+      </form>
     </div>
   </body>
 </html>

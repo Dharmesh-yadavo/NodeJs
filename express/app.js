@@ -46,24 +46,37 @@ app.get("/", (req, res) => {
 });
 
 //! Dynamic routing:
-app.get("/profile/:username", (req, res) => {
-  console.log(req.params);
-  res.send(`<h1>My username is ${req.params.username} </h1>`);
-});
+// app.get("/profile/:username", (req, res) => {
+//   console.log(req.params);
+//   res.send(`<h1>My username is ${req.params.username} </h1>`);
+// });
 
-app.get("/profile/:username/article/:slug", (req, res) => {
-  console.log(req.params);
-  // const formatedSlug = req.params.slug.replaceAll("-", " ");
-  const formatedSlug = req.params.slug.replaceAll(/-/g, " ");
-  res.send(`<h1>Article ${formatedSlug} by ${req.params.username} </h1>`);
-});
+// app.get("/profile/:username/article/:slug", (req, res) => {
+//   console.log(req.params);
+//   // const formatedSlug = req.params.slug.replaceAll("-", " ");
+//   const formatedSlug = req.params.slug.replaceAll(/-/g, " ");
+//   res.send(`<h1>Article ${formatedSlug} by ${req.params.username} </h1>`);
+// });
 
 //! Query Parameters
-app.get("/product", (req, res) => {
-  console.log(req.query);
-  // res.send(`<h1>${req.query.search}</h1>`);
-  //* can do for multiple queries ... while writing URL add & in between
-  res.send(`<h1>${req.query.search} ---> ${req.query.limit}</h1>`);
+// app.get("/product", (req, res) => {
+//   console.log(req.query);
+//   // res.send(`<h1>${req.query.search}</h1>`);
+//   //* can do for multiple queries ... while writing URL add & in between
+//   res.send(`<h1>${req.query.search} ---> ${req.query.limit}</h1>`);
+// });
+
+// !  How to Handle Form Submission in Express
+// app.get("/contact", (req, res) => {
+//   console.log(req.query);
+//   res.redirect("/");
+// });
+
+app.use(express.urlencoded({ extended: true }));
+
+app.post("/contact", (req, res) => {
+  console.log(req.body);
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {
