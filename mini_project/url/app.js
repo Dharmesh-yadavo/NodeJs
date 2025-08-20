@@ -35,6 +35,7 @@ const saveLinks = async (links) => {
 };
 
 const server = createServer(async (req, res) => {
+  //! Get method :
   if (req.method === "GET") {
     if (req.url === "/") {
       //   try {
@@ -51,7 +52,9 @@ const server = createServer(async (req, res) => {
 
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(links));
-    } else {
+    }
+    //! Link Redirection :
+    else {
       const links = await loadLinks();
       const shortCode = req.url.slice(1);
       console.log("links red.", req.url);
@@ -65,7 +68,7 @@ const server = createServer(async (req, res) => {
       return res.end("Shortened URL is not found");
     }
   }
-
+  //! Post method :
   if (req.method === "POST" && req.url === "/shorten") {
     const links = await loadLinks();
     let body = "";
@@ -74,22 +77,20 @@ const server = createServer(async (req, res) => {
     });
     req.on("end", async () => {
       const { url, shortCode } = JSON.parse(body);
-
+      // ! if we not get this URL :
       if (!url) {
         res.writeHead(400, { "Content-Type": "text/plain" });
         return res.end("URL required");
       }
-
+      // ! checking for duplicate URLs / shortCode :
       const finalShortCode = shortCode || crypto.randomBytes(4).toString("hex");
-
       if (links[finalShortCode]) {
         res.writeHead(400, { "Content-Type": "text/plain" });
         return res.end("Short code already exists. Please choose another. ");
       }
-
+      // ! writing data to link.json :
       links[finalShortCode] = url;
       await saveLinks(links);
-
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end();
     });

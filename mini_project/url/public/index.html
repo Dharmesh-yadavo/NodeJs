@@ -25,6 +25,7 @@
     </div>
 
     <script>
+      // Show Links in HTML by Fetching Data from Node.js
       const fetchShortenedURL = async () => {
         const response = await fetch("/links");
         const links = await response.json();
@@ -38,38 +39,37 @@
           list.appendChild(li);
         }
       };
+            document
+              .getElementById("shorten-form")
+              .addEventListener("submit", async (event) => {
+                event.preventDefault();
 
-      document
-        .getElementById("shorten-form")
-        .addEventListener("submit", async (event) => {
-          event.preventDefault();
+                const formData = new FormData(event.target);
+                const url = formData.get("url");
+                const shortCode = formData.get("shortCode");
+                console.log(url, shortCode);
+              });
+      // Passing HTML form data to Node.js
+              try {
+                  const response = await fetch ("/shorten", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ url, shortCode }),
+                  });
 
-          const formData = new FormData(event.target);
-          const url = formData.get("url");
-          const shortCode = formData.get("shortCode");
-          console.log(url, shortCode);
+                  if (response.ok) {
+                    fetchShortenedURL();
+                    alert("form submitted successfully");
+                    event.target.reset();
+                  } else {
+                    const errorMessage = await response.text();
+                    alert(errorMessage);
+                  }
+                } catch (error) {
+                  console.log(error);
+                }
 
-          try {
-            const response = await fetch("/shorten", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ url, shortCode }),
-            });
-
-            if (response.ok) {
-              fetchShortenedURL();
-              alert("form submitted successfully");
-              event.target.reset();
-            } else {
-              const errorMessage = await response.text();
-              alert(errorMessage);
-            }
-          } catch (error) {
-            console.log(error);
-          }
-        });
-
-      fetchShortenedURL();
+                fetchShortenedURL();
     </script>
   </body>
 </html>
