@@ -16,10 +16,10 @@ const filePath = path.join(__dirname, fileName);
 //? callback: A function with an err parameter.
 //*-------------------------------------------------------------------------------------*
 
-// fs.writeFile(filePath, "This is initial data", "utf-8", (err) => {
-//   if (err) console.log(err);
-//   else console.log("File has been saved ");
-// });
+fs.writeFile(filePath, "This is initial data", "utf-8", (err) => {
+  if (err) console.log(err);
+  else console.log("File has been saved ");
+});
 
 //*-------------------------------------------------------------------------------------*
 //* fs.readFile(): Reads the contents of a file asynchronously and returns the data as a buffer or string.
@@ -30,15 +30,15 @@ const filePath = path.join(__dirname, fileName);
 //? callback: A function with parameters (err, data).
 //*-------------------------------------------------------------------------------------*
 
-// fs.readFile(filePath, (err, data) => {
-//   if (err) console.error(err);
-//   else console.log(data.toString());
-// });
+fs.readFile(filePath, (err, data) => {
+  if (err) console.error(err);
+  else console.log(data.toString());
+});
 
-// fs.readFile(filePath, "utf-8", (err, data) => {
-//   if (err) console.log(err);
-//   else console.log(data);
-// });
+fs.readFile(filePath, "utf-8", (err, data) => {
+  if (err) console.log(err);
+  else console.log(data);
+});
 
 //*-------------------------------------------------------------------------------------*
 //* fs.appendFile(): Appends data to a file. If the file doesn’t exist, it is created.
@@ -46,10 +46,10 @@ const filePath = path.join(__dirname, fileName);
 
 //*-------------------------------------------------------------------------------------*
 
-// fs.appendFile(filePath, "\nThis is updated data", "utf-8", (err) => {
-//   if (err) console.log(err);
-//   else console.log("File has been saved ");
-// });
+fs.appendFile(filePath, "\nThis is updated data", "utf-8", (err) => {
+  if (err) console.log(err);
+  else console.log("File has been saved ");
+});
 
 //*-------------------------------------------------------------------------------------*
 //* fs.unlink(): Deletes a file asynchronously.
@@ -57,7 +57,7 @@ const filePath = path.join(__dirname, fileName);
 
 //*-------------------------------------------------------------------------------------*
 
-// fs.unlink(filePath, (err) => {
-//   if (err) console.error(err);
-//   else console.log("File has been Deleted");
-// });
+fs.unlink(filePath, (err) => {
+  if (err) console.error(err);
+  else console.log("File has been Deleted");
+});

@@ -4,7 +4,7 @@ const path = require("path");
 const fileName = "asyncFile.txt";
 const filePath = path.join(__dirname, fileName);
 
-const filePath1 = __dirname;
+// const filePath1 = __dirname;
 
 // fs.promises
 //   .readdir(filePath1)
