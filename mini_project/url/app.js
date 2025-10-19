@@ -47,6 +47,8 @@ const server = createServer(async (req, res) => {
       //     res.end("404 page not found");
       //   }
       return serveFile(res, path.join("public", "index.html"), "text/html");
+    } else if (req.url === "/style.css") {
+      return serveFile(res, path.join("public", "style.css"), "text/css");
     } else if (req.url === "/links") {
       const links = await loadLinks();
 
@@ -69,7 +71,7 @@ const server = createServer(async (req, res) => {
     }
   }
   //! Post method :
-  if (req.method === "POST" && req.url === "/shorten") {
+  else if (req.method === "POST" && req.url === "/shorten") {
     const links = await loadLinks();
     let body = "";
     req.on("data", (chunk) => {
@@ -94,6 +96,10 @@ const server = createServer(async (req, res) => {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end();
     });
+  } else {
+    // This catches unhandled POST URLs, unhandled GET assets, PUT, DELETE, etc.
+    res.writeHead(404, { "Content-type": "text/plain" });
+    return res.end(`Cannot ${req.method} ${req.url}`);
   }
 });
 
