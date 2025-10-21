@@ -74,6 +74,7 @@ app.get("/profile/:username/article/:slug", (req, res) => {
 //   res.redirect("/");
 // });
 
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/contact", (req, res) => {
