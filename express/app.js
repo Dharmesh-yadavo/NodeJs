@@ -29,6 +29,8 @@ const staticPath = path.join(import.meta.dirname, "public");
 app.use(express.static(staticPath));
 
 app.get("/", (req, res) => {
+  console.log(req.body);
+  console.log(res);
   // these will not work in
   // console.log(__dirname);
   // console.log(__filename);
@@ -36,8 +38,8 @@ app.get("/", (req, res) => {
   // console.log(import.meta.dirname);
   //* alternative of filename:
   // console.log(import.meta.url);
-  const __filename = new URL(import.meta.url).pathname;
-  console.log(__filename);
+  // const __filename = new URL(import.meta.url).pathname;
+  // console.log(__filename);
   // res.send("Hi");
   //! Send Files in Express JS
   // const homePagePath = path.join(import.meta.dirname, "public", "index.html");
@@ -50,14 +52,15 @@ app.get("/", (req, res) => {
 //   res.send(`<h1>My username is ${req.params.username} </h1>`);
 // });
 
-// app.get("/profile/:username/article/:slug", (req, res) => {
-//   console.log(req.params);
-//   // const formatedSlug = req.params.slug.replaceAll("-", " ");
-//   const formatedSlug = req.params.slug.replaceAll(/-/g, " ");
-//   res.send(`<h1>Article ${formatedSlug} by ${req.params.username} </h1>`);
-// });
+app.get("/profile/:username/article/:slug", (req, res) => {
+  console.log(req.params);
+  // const formatedSlug = req.params.slug.replaceAll("-", " ");
+  const formatedSlug = req.params.slug.replaceAll(/-/g, " ");
+  res.send(`<h1>Article ${formatedSlug} by ${req.params.username} </h1>`);
+});
 
 //! Query Parameters
+// url=/product?search=phone&limit=2
 // app.get("/product", (req, res) => {
 //   console.log(req.query);
 //   // res.send(`<h1>${req.query.search}</h1>`);
@@ -74,8 +77,12 @@ app.get("/", (req, res) => {
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/contact", (req, res) => {
-  console.log(req.body);
-  res.redirect("/");
+  try {
+    console.log(req.body);
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //! How to Handle a 404 Error Page
