@@ -4,6 +4,7 @@ import { loadLinks, saveLinks } from "../model/shortener.model.js";
 export const getUrlShortener = async (req, res) => {
   try {
     // const file = await readFile(path.join("views", "index.html"));
+    //!
     const links = await loadLinks();
     return res.render("index", { links, host: req.host });
   } catch (error) {
