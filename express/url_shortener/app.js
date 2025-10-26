@@ -1,6 +1,8 @@
-import express from "express";
-
+// Load dotenv configuration immediately
+// import "dotenv/config"; // Standard ESM way to load .env immediately
+// import express from "express";
 import { shortenedRoutes } from "./router/shortener.routes.js";
+// import { env } from "./config/env.js"; // Import the validated env object
 
 const app = express();
 

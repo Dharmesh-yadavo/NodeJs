@@ -23,8 +23,9 @@ export const postUrlShortener = async (req, res) => {
         .status(400)
         .send("Short code already exists. Please choose another. ");
     }
-    links[finalShortCode] = url;
-    await saveLinks(links);
+    // links[finalShortCode] = url;
+    // await saveLinks(links);
+    await saveLinks({ url, shortCode });
     res.redirect("/");
   } catch (error) {
     console.log(error);

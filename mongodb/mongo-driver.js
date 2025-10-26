@@ -9,13 +9,13 @@ const userCollection = db.collection("users");
 //! write / Create
 // userCollection.insertOne({ name: "Dharmesh Yadav", age: 21, dream: "be rich" });
 
-// userCollection.insertMany([
+// userCollection.insertMany([.
 //   { name: "Dheeraj", age: 21, dream: "independent" },
 //   { neme: "Dharmesh", age: 21, dream: "clear SSC-tech" },
 //   { name: "DharmaBhai", age: 21, dream: "Billionare" },
 // ]);
 
-// if not commented then it will run again & again ...
+// if not commented then it will run again & again ..
 
 //! Read
 // const userCursor = userCollection.find();
