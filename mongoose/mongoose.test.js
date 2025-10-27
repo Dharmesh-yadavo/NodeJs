@@ -20,10 +20,12 @@ const urlSchema = mongoose.Schema({
 // step: creating a model
 const Users = mongoose.model("user", urlSchema);
 
-await Users.create({
-  name: "Dharm",
-  email: "yadavDharm@gmail.com",
-  age: 10,
-});
+// await Users.create({
+//   name: "Dharm",
+//   email: "yadavDharm@gmail.com",
+//   age: 10,
+// });
+
+console.log(await Users.find());
 
 await mongoose.connection.close();
