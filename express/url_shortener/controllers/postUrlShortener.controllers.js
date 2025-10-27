@@ -35,8 +35,10 @@ export const postUrlShortener = async (req, res) => {
 export const redirectToShortLink = async (req, res) => {
   try {
     const { shortCode } = req.params;
-    const links = await loadLinks();
-    if (!links[shortCode]) return res.status(404).send("404 error occured");
+    // const links = await loadLinks();
+    const links = await getLinkByShortCode(shortCode);
+    // if (!links[shortCode]) return res.status(404).send("404 error occured");
+
     return res.redirect(links[shortCode]);
   } catch (error) {
     console.log(error);
